@@ -1,15 +1,13 @@
-import { Command } from 'commander';
+import { readFileSync } from 'fs';
+import _ from 'lodash';
 
-export default () => {
-  const program = new Command();
 
-  program
-    .name('gendiff')
-    .description('Compares two configuration files and shows a difference.')
-    .version('1.0.0')
-    .option('-f, --format <type>', 'output format')
-    .argument('<filepath1>')
-    .argument('<filepath2>');
 
-  program.parse();
+export default (filepath1, filepath2) => {
+  const data1 = JSON.parse(readFileSync(filepath1));
+  const data2 = JSON.parse(readFileSync(filepath2));
+
+  const keys = _.uniq([...Object.keys(data1), ...Object.keys(data2)])
+
+  console.log(keys)
 };
