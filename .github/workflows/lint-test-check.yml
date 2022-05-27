@@ -1,4 +1,4 @@
-name: lint-check
+name: lint-test-check
 on: [push] 
 
 jobs:
