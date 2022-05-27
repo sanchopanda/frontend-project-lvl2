@@ -1,5 +1,6 @@
+import { test, expect } from '@jest/globals';
 import gendiff from '../src/gendiff.js';
-import { getFixturePath } from './getFixturePath.js';
+import getFixturePath from './getFixturePath.js';
 
 test('gendif', () => {
   const file1path = getFixturePath('file1.json');

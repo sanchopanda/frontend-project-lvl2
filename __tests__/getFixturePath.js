@@ -8,6 +8,4 @@ const __dirname = dirname(__filename);
 
 const getFixturePath = (filename) => path.join(__dirname, '..', '__fixtures__', filename);
 
-export {
-  getFixturePath
-};
+export default getFixturePath;
