@@ -1,4 +1,4 @@
-import path, { dirname } from 'path';
+import path from 'path';
 import { readFileSync } from 'fs';
 import yaml from 'js-yaml';
 
