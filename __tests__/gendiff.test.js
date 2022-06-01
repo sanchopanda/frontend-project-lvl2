@@ -6,7 +6,7 @@ import getFixturePath from '../src/getFixturePath.js';
 test('gendif', () => {
   const pairs = [
     ['file1.json', 'file2.json'],
-    ['file1.yml', 'file2.yml']
+    ['file1.yml', 'file2.yml'],
   ];
 
   const resultPath = getFixturePath('result');
