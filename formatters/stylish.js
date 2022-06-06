@@ -12,16 +12,16 @@ const getStylish = (tree, deep = 1) => {
     let sign;
 
     switch (type) {
-      case '+':
+      case 'added':
         sign = '+ ';
         break;
-      case '-':
+      case 'removed':
         sign = '- ';
         break;
-      case 'object':
+      case 'nested':
         sign = '  ';
         break;
-      case '=':
+      case 'equal':
         sign = '  ';
         break;
       default:

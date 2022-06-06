@@ -12,6 +12,7 @@ test('gendif', () => {
   const resultPathes = {
     stylish: getFixturePath('resultStylish'),
     plain: getFixturePath('resultPlain'),
+    json: getFixturePath('resultJson.json'),
   };
 
   pairs.forEach(([file1, file2]) => {

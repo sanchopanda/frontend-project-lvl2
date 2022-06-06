@@ -23,13 +23,13 @@ const getPlain = (tree, parent = false) => {
     const path = `${parent ? `${parent}.` : ''}${name}`;
 
     switch (type) {
-      case 'object':
+      case 'nested':
         return getPlain(value, path);
-      case '+':
+      case 'added':
         return `Property '${path}' was added with value: ${normalizer(value)}`;
-      case '-':
+      case 'removed':
         return `Property '${path}' was removed`;
-      case '=':
+      case 'equal':
         return [];
       default:
         return [];

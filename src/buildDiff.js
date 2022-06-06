@@ -12,7 +12,7 @@ const buildDiff = (data1, data2Arg = false) => {
       return {
         name: key,
         value: buildDiff(data2[key]),
-        type: '+',
+        type: 'added',
       };
     }
 
@@ -20,7 +20,7 @@ const buildDiff = (data1, data2Arg = false) => {
       return {
         name: key,
         value: buildDiff(data1[key]),
-        type: '-',
+        type: 'removed',
       };
     }
 
@@ -28,7 +28,7 @@ const buildDiff = (data1, data2Arg = false) => {
       return {
         name: key,
         value: buildDiff(data1[key], data2[key]),
-        type: 'object',
+        type: 'nested',
       };
     }
 
@@ -36,7 +36,7 @@ const buildDiff = (data1, data2Arg = false) => {
       return {
         name: key,
         value: data1[key],
-        type: '=',
+        type: 'equal',
       };
     }
 
@@ -44,12 +44,12 @@ const buildDiff = (data1, data2Arg = false) => {
       {
         name: key,
         value: buildDiff(data1[key]),
-        type: '-',
+        type: 'removed',
       },
       {
         name: key,
         value: buildDiff(data2[key]),
-        type: '+',
+        type: 'added',
       },
     ];
   });
