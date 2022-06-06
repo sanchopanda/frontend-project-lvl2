@@ -2,7 +2,7 @@ import buildDiff from './buildDiff.js';
 import parser from './parser.js';
 import formatters from '../formatters/index.js';
 
-export default (filepath1, filepath2, formater = 'stylish') => {
+export default (filepath1, filepath2, formater = 'plain') => {
   const data1 = parser(filepath1);
   const data2 = parser(filepath2);
 

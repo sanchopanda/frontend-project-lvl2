@@ -9,13 +9,18 @@ test('gendif', () => {
     ['file1.yml', 'file2.yml'],
   ];
 
-  const resultPath = getFixturePath('result');
+  const resultPathes = {
+    stylish: getFixturePath('resultStylish'),
+    plain: getFixturePath('resultPlain'),
+  };
 
   pairs.forEach(([file1, file2]) => {
     const file1path = getFixturePath(file1);
     const file2path = getFixturePath(file2);
-    expect(gendiff(file1path, file2path)).toBe(
-      readFileSync(resultPath, 'utf8'),
-    );
+    Object.entries(resultPathes).forEach(([formater, resultPath]) => {
+      expect(gendiff(file1path, file2path, formater)).toBe(
+        readFileSync(resultPath, 'utf8'),
+      );
+    });
   });
 });
