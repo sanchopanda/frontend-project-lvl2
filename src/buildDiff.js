@@ -5,10 +5,10 @@ const buildDiff = (data1, data2Arg = false) => {
 
   const data2 = data2Arg || data1;
 
-  const keys = _.uniq([...Object.keys(data1), ...Object.keys(data2)]).sort();
+  const keys = _.sortBy(_.uniq([...Object.keys(data1), ...Object.keys(data2)]));
 
   return keys.map((key) => {
-    if (!data1.hasOwnProperty(key)) {
+    if (!_.has(data1, key)) {
       return {
         name: key,
         value: buildDiff(data2[key]),
@@ -16,7 +16,7 @@ const buildDiff = (data1, data2Arg = false) => {
       };
     }
 
-    if (!data2.hasOwnProperty(key)) {
+    if (!_.has(data2, key)) {
       return {
         name: key,
         value: buildDiff(data1[key]),
